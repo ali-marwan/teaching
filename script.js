@@ -1,17 +1,16 @@
-const flowSections = [
-  { id: "attendance", label: "Attendance" },
-  { id: "agenda", label: "Agenda" },
-  { id: "expectations", label: "Active Learning" },
-  { id: "pre", label: "Pre-assessment" },
-  { id: "starter", label: "Starter" },
-  { id: "objectives", label: "Objectives + Keywords" },
-  { id: "explore", label: "Explore" },
-  { id: "explain", label: "Explain" },
-  { id: "activities", label: "Activities" },
-  { id: "formative", label: "Formative Assessment" },
-  { id: "summary", label: "Summary" },
-  { id: "exit", label: "Exit Ticket" },
-  { id: "reflection", label: "Reflection/Homework" }
+const classIndexItems = [
+  { id: "welcome", label: "Class Welcome + attendance", start: 0 },
+  { id: "anthem", label: "National Anthem", start: 1 },
+  { id: "rules", label: "Classroom Rules", start: 2 },
+  { id: "pre-starter", label: "Pre-assessment + Starter", start: 3 },
+  { id: "lesson-title", label: "Lesson title", start: 5 },
+  { id: "outcomes", label: "Outcomes + vocab", start: 6 },
+  { id: "lesson-explanation", label: "Lesson explanation", start: 7 },
+  { id: "formative", label: "Formative assessment", start: 17 },
+  { id: "check-understanding", label: "Check understanding", start: 18 },
+  { id: "final-assessment", label: "Final assessment", start: 20, tone: "final" },
+  { id: "enrichment", label: "Enrichment activity", start: 21 },
+  { id: "homework", label: "Homework", start: 21 }
 ];
 
 const lessonOneObjectives = [
@@ -57,9 +56,18 @@ const lessons = [
                 <div class="reveal-content">A ready student can name one material that contains carbon and can explain what evidence they would look for in a formula.</div>
               </div>
             </div>
-            <div class="visual-panel">
-              <div class="large-number">20</div>
-              <p class="slide-subtitle">Module focus: hydrocarbons, models, fuels, structures, and reactivity.</p>
+            <div class="visual-panel student-hero-panel">
+              <div class="student-scene-card">
+                <div class="mini-three-scene" data-scene="methane" aria-label="Rotating methane molecule"></div>
+                <div class="print-fallback molecule-field">
+                  <span class="bond-line b1"></span><span class="bond-line b2"></span><span class="bond-line b3"></span><span class="bond-line b4"></span>
+                  <span class="atom c">C</span><span class="atom h h1">H</span><span class="atom h h2">H</span><span class="atom h h3">H</span><span class="atom h h4">H</span>
+                </div>
+                <div class="student-scene-caption">
+                  <strong>Module 20</strong>
+                  <span>carbon models, fuels, structures, and reactivity</span>
+                </div>
+              </div>
             </div>
           </div>`
       },
@@ -82,11 +90,11 @@ const lessons = [
               </ul>
             </div>
             <div class="activity-panel">
-              <div class="journey-track">
-                <div class="journey-step"><span>01</span><strong>Notice</strong><p>What materials might contain carbon?</p></div>
-                <div class="journey-step"><span>02</span><strong>Model</strong><p>Build carbon bonds in 2D and 3D.</p></div>
-                <div class="journey-step"><span>03</span><strong>Sort</strong><p>Hydrocarbon or not? Use evidence.</p></div>
-                <div class="journey-step"><span>04</span><strong>Defend</strong><p>Saturated or unsaturated?</p></div>
+              <div class="journey-track student-path">
+                <div class="journey-step"><span>01</span><strong>Look</strong><p>Find carbon in materials you already know.</p></div>
+                <div class="journey-step"><span>02</span><strong>Build</strong><p>Use 2D and 3D models to see bonds.</p></div>
+                <div class="journey-step"><span>03</span><strong>Sort</strong><p>Decide hydrocarbon or not from evidence.</p></div>
+                <div class="journey-step"><span>04</span><strong>Defend</strong><p>Prove saturated or unsaturated.</p></div>
               </div>
             </div>
           </div>`
@@ -164,7 +172,7 @@ const lessons = [
                 <div class="material-tile" style="background-image: linear-gradient(160deg, rgba(13,45,47,.74), rgba(13,45,47,.1)), url('./assets/ppt/perfume-bottles.jpeg');"><span>Perfumes</span></div>
                 <div class="material-tile" style="background-image: linear-gradient(160deg, rgba(13,45,47,.72), rgba(13,45,47,.08)), url('./assets/ppt/dye-bowls.jpeg');"><span>Dyes</span></div>
                 <div class="material-tile" style="background-image: linear-gradient(160deg, rgba(13,45,47,.76), rgba(13,45,47,.1)), url('./assets/ruwais-refinery.jpg');"><span>Fuels</span></div>
-                <div class="material-tile tile-polymer"><span>Plastics</span><small>chains of carbon</small></div>
+                <div class="material-tile tile-polymer polymer-media"><span>Plastics</span><small>carbon-chain materials</small></div>
               </div>
               <p class="image-credit">Media: teacher PowerPoint images and local refinery image.</p>
               <div class="reveal">
@@ -193,9 +201,13 @@ const lessons = [
                 <span class="keyword">Unsaturated</span>
               </div>
             </div>
-            <div class="visual-panel">
-              <div class="formula-board">
-                <div class="formula"><span>C</span><small>and</small><span>H</span></div>
+            <div class="visual-panel hydrocarbon-builder-panel">
+              <div class="formula-board hydrocarbon-builder">
+                <div class="mini-three-scene" data-scene="ethane" aria-label="Rotating ethane hydrocarbon model"></div>
+                <div class="print-fallback bond-row">
+                  <div class="bond-card"><div class="bond-visual"><div class="bond-lines"><span></span></div></div><h3>C-C</h3><p>carbon-carbon bond</p></div>
+                </div>
+                <div class="formula"><span>C</span><small>+</small><span>H</span></div>
                 <div class="equation-note">Hydrocarbons are built from carbon and hydrogen atoms only.</div>
               </div>
             </div>
@@ -373,11 +385,11 @@ const lessons = [
               <span class="time-tag">3 min</span>
               <h2 class="slide-title">One molecule, four representations</h2>
               <p class="slide-subtitle">Each model shows useful information and hides other information.</p>
-              <div class="model-row model-lab">
-                <div class="model-card"><div class="model-icon">C2H6</div><h3>Molecular</h3><p>Counts atoms only.</p></div>
-                <div class="model-card"><div class="model-icon">H3C-CH3</div><h3>Structural</h3><p>Shows atom connections.</p></div>
-                <div class="model-card model-photo"><img src="./assets/online/ethane-3d.png" alt="Ethane ball-and-stick model"><h3>Ball-stick</h3><p>Shows geometry and bonds.</p></div>
-                <div class="model-card model-photo"><img src="./assets/ppt/hydrocarbon-model-collage.png" alt="Teacher PowerPoint molecule model collage"><h3>Model gallery</h3><p>Compare how each view changes the evidence.</p></div>
+              <div class="model-row model-lab representation-lab">
+                <div class="model-card representation-card"><div class="model-icon formula-model">C2H6</div><h3>Molecular</h3><p>Counts atoms only.</p></div>
+                <div class="model-card representation-card"><div class="model-icon structure-model">H3C-CH3</div><h3>Structural</h3><p>Shows atom connections.</p></div>
+                <div class="model-card representation-card model-3d-card"><div class="mini-three-scene" data-scene="ethane" aria-label="Ethane ball-and-stick model"></div><div class="print-fallback model-icon structure-model">H3C-CH3</div><h3>Ball-stick</h3><p>Shows geometry and bonds.</p></div>
+                <div class="model-card representation-card model-3d-card"><div class="mini-three-scene" data-scene="bonds" aria-label="Single double and triple carbon bond models"></div><div class="print-fallback bond-lines"><span></span><span></span><span></span></div><h3>Bond evidence</h3><p>Compare single, double, and triple bonds.</p></div>
               </div>
               <div class="reveal">
                 <button class="reveal-toggle" type="button">Best model for bonding evidence</button>
@@ -407,10 +419,10 @@ const lessons = [
               </div>
             </div>
             <div class="activity-panel">
-              <div class="bond-row bond-showcase">
-                <div class="bond-card"><div class="bond-visual molecule-photo"><img src="./assets/online/ethane-3d.png" alt="Ethane molecule"></div><h3>Single</h3><p>Saturated evidence.</p></div>
-                <div class="bond-card"><div class="bond-visual"><div class="bond-lines"><span></span><span></span></div></div><h3>Double</h3><p>Unsaturated evidence.</p></div>
-                <div class="bond-card"><div class="bond-visual"><div class="bond-lines"><span></span><span></span><span></span></div></div><h3>Triple</h3><p>Unsaturated evidence.</p></div>
+              <div class="bond-row bond-showcase molecule-showcase">
+                <div class="bond-card molecule-card"><div class="bond-visual model-visual"><div class="mini-three-scene" data-scene="bond-single" aria-label="Single carbon-carbon bond model"></div><div class="print-fallback bond-lines"><span></span></div></div><h3>Single</h3><p>Saturated evidence.</p></div>
+                <div class="bond-card molecule-card"><div class="bond-visual model-visual"><div class="mini-three-scene" data-scene="bond-double" aria-label="Double carbon-carbon bond model"></div><div class="print-fallback bond-lines"><span></span><span></span></div></div><h3>Double</h3><p>Unsaturated evidence.</p></div>
+                <div class="bond-card molecule-card"><div class="bond-visual model-visual"><div class="mini-three-scene" data-scene="bond-triple" aria-label="Triple carbon-carbon bond model"></div><div class="print-fallback bond-lines"><span></span><span></span><span></span></div></div><h3>Triple</h3><p>Unsaturated evidence.</p></div>
               </div>
             </div>
           </div>`
@@ -557,7 +569,7 @@ const lessons = [
           <div class="slide-grid">
             <div class="content-panel">
               <span class="time-tag">3 min</span>
-              <h2 class="slide-title">Which molecule is more reactive?</h2>
+              <h2 class="slide-title">Predict: which molecule reacts more easily?</h2>
               <p class="slide-subtitle">A compound with a C=C bond is compared with a similar compound that has only C-C single bonds. Which is more likely to undergo addition reaction?</p>
               <div class="reveal">
                 <button class="reveal-toggle" type="button">Reasoned answer</button>
@@ -603,7 +615,7 @@ const lessons = [
           <div class="slide-grid wide">
             <div class="content-panel">
               <span class="time-tag">3 min</span>
-              <h2 class="slide-title">Three checks before leaving</h2>
+              <h2 class="slide-title">Exit check: three moves before you leave</h2>
               <div class="task-grid">
                 <div class="exit-card"><h3>1. Explain</h3><p>Why can carbon form many different compounds?</p></div>
                 <div class="exit-card"><h3>2. Define</h3><p>Write one hydrocarbon formula and explain why it qualifies.</p></div>
@@ -785,21 +797,30 @@ function buildTabs() {
   `).join("");
 }
 
-function printSidebarMarkup(lesson, activeSection) {
-  const firstSectionIndexes = sectionFirstIndexes(lesson);
+function activeClassIndexId(slideIndex) {
+  const item = [...classIndexItems].reverse().find((candidate) => slideIndex >= candidate.start);
+  return item?.id ?? classIndexItems[0].id;
+}
+
+function classIndexMarkup(activeId) {
+  return `
+    ${classIndexItems.map((item) => `
+      <li class="flow-item ${item.id === activeId ? "is-active" : ""} ${item.tone === "final" ? "is-final" : ""}" data-index-item="${item.id}">
+        <div class="flow-button"><strong>${item.label}</strong></div>
+      </li>
+    `).join("")}
+  `;
+}
+
+function printSidebarMarkup(lesson, slideIndex) {
+  const activeId = activeClassIndexId(slideIndex);
   return `
     <aside class="print-sidebar class-sidebar" aria-hidden="true">
       <div class="sidebar-head">
-        <span class="sidebar-kicker">Class Flow</span>
-        <strong>${lesson.short}</strong>
-        <span>${lesson.title}</span>
+        <strong>Class index</strong>
       </div>
       <ol class="flow-list">
-        ${flowSections.map((section, index) => `
-          <li class="flow-item ${section.id === activeSection ? "is-active" : ""} ${firstSectionIndexes[section.id] === undefined ? "is-disabled" : ""}">
-            <div class="flow-button"><span>${index + 1}</span><strong>${section.label}</strong></div>
-          </li>
-        `).join("")}
+        ${classIndexMarkup(activeId)}
       </ol>
     </aside>
   `;
@@ -810,7 +831,7 @@ function buildDecks() {
     <section class="lesson-deck" data-lesson="${lesson.id}" aria-label="${lesson.title}">
       ${lesson.slides.map((slide, index) => `
         <article class="slide-page" data-section="${slide.section}" data-slide="${index}">
-          ${printSidebarMarkup(lesson, slide.section)}
+          ${printSidebarMarkup(lesson, index)}
           <div class="slide-stage">
             <header class="metadata-bar">
               <div class="meta-main">
@@ -854,40 +875,13 @@ function revealKey(lessonId, slideIndex, revealIndex) {
   return `${lessonId}:${slideIndex}:${revealIndex}`;
 }
 
-function sectionFirstIndexes(lesson) {
-  return lesson.slides.reduce((map, slide, index) => {
-    if (map[slide.section] === undefined) map[slide.section] = index;
-    return map;
-  }, {});
-}
-
 function buildFlow() {
-  const lesson = activeLesson();
-  const firstIndexes = sectionFirstIndexes(lesson);
-  elements.flowList.innerHTML = flowSections.map((section, index) => `
-    <li class="flow-item" data-section="${section.id}">
-      <button class="flow-button" type="button" ${firstIndexes[section.id] === undefined ? "disabled" : ""}>
-        <span>${index + 1}</span>
-        <strong>${section.label}</strong>
-      </button>
-    </li>
-  `).join("");
-
-  elements.flowList.querySelectorAll(".flow-item").forEach((item) => {
-    item.querySelector("button").addEventListener("click", () => {
-      const target = firstIndexes[item.dataset.section];
-      if (target === undefined) return;
-      state.view = "deck";
-      state.slideIndexByLesson[state.activeLessonId] = target;
-      updateUI();
-    });
-  });
+  elements.flowList.innerHTML = classIndexMarkup(activeClassIndexId(activeSlideIndex()));
 }
 
 function updateUI() {
   const lesson = activeLesson();
   const slideIndex = activeSlideIndex();
-  const slide = activeSlide();
   const total = lesson.slides.length;
 
   elements.landing.hidden = state.view !== "landing";
@@ -904,18 +898,15 @@ function updateUI() {
     });
   });
 
-  elements.sidebarLesson.textContent = `${lesson.short}: ${lesson.title}`;
+  elements.sidebarLesson.textContent = "Class index";
   elements.slideCounter.textContent = `Slide ${slideIndex + 1} / ${total}`;
   elements.progressFill.style.width = `${((slideIndex + 1) / total) * 100}%`;
   elements.prevButton.disabled = state.view === "landing" || slideIndex === 0;
-  elements.nextButton.disabled = state.view === "landing" || slideIndex === total - 1;
+  elements.nextButton.disabled = state.view !== "landing" && slideIndex === total - 1;
 
   buildFlow();
   elements.flowList.querySelectorAll(".flow-item").forEach((item) => {
-    const firstIndexes = sectionFirstIndexes(lesson);
-    const first = firstIndexes[item.dataset.section];
-    item.classList.toggle("is-active", item.dataset.section === slide.section);
-    item.classList.toggle("is-complete", first !== undefined && first < slideIndex);
+    item.classList.toggle("is-active", item.dataset.indexItem === activeClassIndexId(slideIndex));
   });
 
   document.querySelectorAll(".reveal").forEach((reveal) => {
@@ -926,14 +917,24 @@ function updateUI() {
   elements.printModeButton.textContent = state.printMode === "active" ? "Print: Active lesson" : "Print: All lessons";
 }
 
-function goToLesson(lessonId) {
+function enterDeck(lessonId = state.activeLessonId, slideIndex) {
   state.activeLessonId = lessonId;
+  if (slideIndex !== undefined) {
+    state.slideIndexByLesson[lessonId] = slideIndex;
+  }
   state.view = "deck";
   updateUI();
 }
 
+function goToLesson(lessonId) {
+  enterDeck(lessonId);
+}
+
 function nextSlide() {
-  if (state.view === "landing") return;
+  if (state.view === "landing") {
+    enterDeck(state.activeLessonId, 0);
+    return;
+  }
   const lesson = activeLesson();
   const current = activeSlideIndex();
   if (current < lesson.slides.length - 1) {
@@ -965,11 +966,11 @@ function lastSlide() {
 }
 
 function initThreeScenes() {
-  document.querySelectorAll(".three-scene").forEach((container) => {
+  document.querySelectorAll(".three-scene, .mini-three-scene").forEach((container) => {
     try {
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-      camera.position.set(0, 0.4, 7);
+      camera.position.set(0, 0.35, container.classList.contains("mini-three-scene") ? 6 : 7);
 
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -986,6 +987,14 @@ function initThreeScenes() {
       const sceneType = container.dataset.scene;
       if (sceneType === "methane") {
         buildMethane(group);
+      } else if (sceneType === "ethane") {
+        buildEthane(group);
+      } else if (sceneType === "bond-single") {
+        buildCarbonBondModel(group, 1, "C-C");
+      } else if (sceneType === "bond-double") {
+        buildCarbonBondModel(group, 2, "C=C");
+      } else if (sceneType === "bond-triple") {
+        buildCarbonBondModel(group, 3, "C#C");
       } else {
         buildBondScene(group);
       }
@@ -1084,6 +1093,43 @@ function buildMethane(group) {
   });
 }
 
+function buildEthane(group) {
+  const left = new THREE.Vector3(-0.72, 0, 0);
+  const right = new THREE.Vector3(0.72, 0, 0);
+  addAtom(group, "C", 0x15262d, left, 0.48);
+  addAtom(group, "C", 0x15262d, right, 0.48);
+  addBond(group, left, right, 0xf2b134, 0.055);
+
+  [
+    { base: left, offset: new THREE.Vector3(-0.88, 0.8, 0.55) },
+    { base: left, offset: new THREE.Vector3(-0.88, -0.8, 0.55) },
+    { base: left, offset: new THREE.Vector3(-0.72, 0, -0.85) },
+    { base: right, offset: new THREE.Vector3(0.88, 0.8, -0.55) },
+    { base: right, offset: new THREE.Vector3(0.88, -0.8, -0.55) },
+    { base: right, offset: new THREE.Vector3(0.72, 0, 0.85) }
+  ].forEach(({ base, offset }) => {
+    const position = base.clone().add(offset);
+    addBond(group, base, position, 0xd8e8ea, 0.042);
+    addAtom(group, "H", 0xf1f7f8, position, 0.26);
+  });
+}
+
+function buildCarbonBondModel(group, count, labelText) {
+  const left = new THREE.Vector3(-0.65, 0, 0);
+  const right = new THREE.Vector3(0.65, 0, 0);
+  addAtom(group, "C", 0x16262d, left, 0.42);
+  addAtom(group, "C", 0x16262d, right, 0.42);
+  const offsets = count === 1 ? [0] : count === 2 ? [-0.13, 0.13] : [-0.22, 0, 0.22];
+  offsets.forEach((offset) => {
+    addBond(group, left.clone().add(new THREE.Vector3(0, offset, 0)), right.clone().add(new THREE.Vector3(0, offset, 0)), 0xf2b134, 0.045);
+  });
+
+  const label = makeLabel(labelText, "#ffffff");
+  label.position.set(0, -0.82, 0);
+  label.scale.set(0.86, 0.42, 1);
+  group.add(label);
+}
+
 function buildBondScene(group) {
   const sets = [
     { x: -2, count: 1, label: "C-C" },
@@ -1114,8 +1160,7 @@ function wireEvents() {
   });
 
   elements.startLessonButton.addEventListener("click", () => {
-    state.view = "deck";
-    updateUI();
+    enterDeck("lesson-1", 0);
   });
 
   elements.homeButton.addEventListener("click", () => {
@@ -1142,14 +1187,6 @@ function wireEvents() {
     if (event.key === "ArrowLeft" || event.key === "PageUp") {
       event.preventDefault();
       previousSlide();
-    }
-    if (event.key === "Home") {
-      event.preventDefault();
-      firstSlide();
-    }
-    if (event.key === "End") {
-      event.preventDefault();
-      lastSlide();
     }
   });
 }
