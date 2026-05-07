@@ -82,13 +82,11 @@ const lessons = [
               </ul>
             </div>
             <div class="activity-panel">
-              <div class="summary-grid">
-                <div class="summary-card"><h3>Explore</h3><p>Observe models before formal explanation.</p></div>
-                <div class="summary-card"><h3>Discuss</h3><p>Think-Pair-Share after each visual.</p></div>
-                <div class="summary-card"><h3>Apply</h3><p>Classify examples using evidence.</p></div>
-                <div class="summary-card"><h3>Evaluate</h3><p>Justify answers, not only select them.</p></div>
-                <div class="summary-card"><h3>Create</h3><p>Connect hydrocarbons to UAE contexts.</p></div>
-                <div class="summary-card"><h3>Reflect</h3><p>Exit with one clear learning change.</p></div>
+              <div class="journey-track">
+                <div class="journey-step"><span>01</span><strong>Notice</strong><p>What materials might contain carbon?</p></div>
+                <div class="journey-step"><span>02</span><strong>Model</strong><p>Build carbon bonds in 2D and 3D.</p></div>
+                <div class="journey-step"><span>03</span><strong>Sort</strong><p>Hydrocarbon or not? Use evidence.</p></div>
+                <div class="journey-step"><span>04</span><strong>Defend</strong><p>Saturated or unsaturated?</p></div>
               </div>
             </div>
           </div>`
@@ -162,12 +160,13 @@ const lessons = [
               <span class="time-tag">3 min</span>
               <h2 class="slide-title">Why does carbon appear in so many materials?</h2>
               <p class="slide-subtitle">Look at the four examples. Which are likely to contain carbon compounds? What evidence would prove it?</p>
-              <div class="hydrocarbon-strip">
-                <div class="material-tile tile-lab">Medicine</div>
-                <div class="material-tile tile-fuel">Fuel</div>
-                <div class="material-tile tile-polymer">Plastic</div>
-                <div class="material-tile tile-life">Food</div>
+              <div class="hydrocarbon-strip photo-strip">
+                <div class="material-tile" style="background-image: linear-gradient(160deg, rgba(13,45,47,.74), rgba(13,45,47,.1)), url('./assets/ppt/perfume-bottles.jpeg');"><span>Perfumes</span></div>
+                <div class="material-tile" style="background-image: linear-gradient(160deg, rgba(13,45,47,.72), rgba(13,45,47,.08)), url('./assets/ppt/dye-bowls.jpeg');"><span>Dyes</span></div>
+                <div class="material-tile" style="background-image: linear-gradient(160deg, rgba(13,45,47,.76), rgba(13,45,47,.1)), url('./assets/ruwais-refinery.jpg');"><span>Fuels</span></div>
+                <div class="material-tile tile-polymer"><span>Plastics</span><small>chains of carbon</small></div>
               </div>
+              <p class="image-credit">Media: teacher PowerPoint images and local refinery image.</p>
               <div class="reveal">
                 <button class="reveal-toggle" type="button">Discussion anchor</button>
                 <div class="reveal-content">Most familiar materials contain carbon compounds. Evidence includes formulas with C atoms and structures showing carbon bonded to hydrogen or other atoms.</div>
@@ -252,8 +251,13 @@ const lessons = [
                 <div class="reveal-content">Carbon's tetravalence and ability to bond with itself explain why carbon forms a huge number of compounds.</div>
               </div>
             </div>
-            <div class="visual-panel">
-              <div class="electron-shell" aria-label="Carbon electron shell model">
+            <div class="visual-panel carbon-visual-panel">
+              <div class="carbon-poster">
+                <img src="./assets/online/carbon-allotropes.svg" alt="Carbon allotrope structures">
+                <div class="carbon-callout top">same element</div>
+                <div class="carbon-callout bottom">different bonding patterns</div>
+              </div>
+              <div class="electron-mini" aria-hidden="true">
                 <div class="orbit one"><span class="electron"></span><span class="electron"></span></div>
                 <div class="orbit two"><span class="electron"></span><span class="electron"></span><span class="electron"></span><span class="electron"></span></div>
                 <div class="nucleus">C</div>
@@ -312,11 +316,15 @@ const lessons = [
               </ul>
             </div>
             <div class="activity-panel">
+              <div class="source-grid">
+                <div class="photo-card" style="background-image: url('./assets/ppt/perfume-bottles.jpeg');"><span>fragrance chemistry</span></div>
+                <div class="photo-card" style="background-image: url('./assets/ppt/dye-bowls.jpeg');"><span>color compounds</span></div>
+              </div>
               <h3>Student quick sort</h3>
-              <div class="choice-grid">
-                <div class="choice-card"><strong>CO2</strong><div class="structure">O=C=O</div><p>Contains carbon, but not usually treated as organic here.</p></div>
-                <div class="choice-card"><strong>C2H6</strong><div class="structure">H3C-CH3</div><p>Organic hydrocarbon.</p></div>
-                <div class="choice-card"><strong>C2H5OH</strong><div class="structure">C-H-O</div><p>Organic, but not a hydrocarbon.</p></div>
+              <div class="choice-grid compact">
+                <div class="choice-card"><strong>CO2</strong><div class="structure">O=C=O</div><p>carbon + oxygen</p></div>
+                <div class="choice-card"><strong>C2H6</strong><div class="structure">H3C-CH3</div><p>carbon + hydrogen</p></div>
+                <div class="choice-card"><strong>C2H5OH</strong><div class="structure">C-H-O</div><p>oxygen present</p></div>
               </div>
             </div>
           </div>`
@@ -327,11 +335,22 @@ const lessons = [
         duration: "4 min",
         objective: "Define hydrocarbons and classify examples using formulas.",
         content: `
-          <div class="slide-grid wide">
+          <div class="slide-grid split-large">
             <div class="content-panel">
               <span class="time-tag">4 min</span>
               <h2 class="slide-title">Sort by evidence, not by guessing</h2>
               <p class="slide-subtitle">Work with your partner. Put each example into Hydrocarbon or Not a Hydrocarbon, then justify one decision.</p>
+              <div class="evidence-scanner">
+                <div><strong>Scan 1</strong><span>Does it contain carbon?</span></div>
+                <div><strong>Scan 2</strong><span>Does it contain hydrogen?</span></div>
+                <div><strong>Scan 3</strong><span>Are there any other elements?</span></div>
+              </div>
+              <div class="reveal">
+                <button class="reveal-toggle" type="button">Sorted answer</button>
+                <div class="reveal-content">Hydrocarbons: CH4, C3H8, C6H6. Not hydrocarbons: C2H5OH, NaCl, CO. Hydrocarbons contain carbon and hydrogen only.</div>
+              </div>
+            </div>
+            <div class="activity-panel">
               <div class="choice-grid">
                 <div class="choice-card"><strong>CH4</strong><div class="structure">C + H only</div><p>Hydrocarbon?</p></div>
                 <div class="choice-card"><strong>C3H8</strong><div class="structure">C-C-C</div><p>Hydrocarbon?</p></div>
@@ -339,10 +358,6 @@ const lessons = [
                 <div class="choice-card"><strong>NaCl</strong><div class="structure">no C</div><p>Hydrocarbon?</p></div>
                 <div class="choice-card"><strong>C6H6</strong><div class="structure">ring</div><p>Hydrocarbon?</p></div>
                 <div class="choice-card"><strong>CO</strong><div class="structure">O present</div><p>Hydrocarbon?</p></div>
-              </div>
-              <div class="reveal">
-                <button class="reveal-toggle" type="button">Sorted answer</button>
-                <div class="reveal-content">Hydrocarbons: CH4, C3H8, C6H6. Not hydrocarbons: C2H5OH, NaCl, CO. Hydrocarbons contain carbon and hydrogen only.</div>
               </div>
             </div>
           </div>`
@@ -358,11 +373,11 @@ const lessons = [
               <span class="time-tag">3 min</span>
               <h2 class="slide-title">One molecule, four representations</h2>
               <p class="slide-subtitle">Each model shows useful information and hides other information.</p>
-              <div class="model-row">
+              <div class="model-row model-lab">
                 <div class="model-card"><div class="model-icon">C2H6</div><h3>Molecular</h3><p>Counts atoms only.</p></div>
                 <div class="model-card"><div class="model-icon">H3C-CH3</div><h3>Structural</h3><p>Shows atom connections.</p></div>
-                <div class="model-card"><div class="model-icon">ball + stick</div><h3>Ball-stick</h3><p>Shows geometry and bonds.</p></div>
-                <div class="model-card"><div class="model-icon">filled space</div><h3>Space-fill</h3><p>Shows relative atom size.</p></div>
+                <div class="model-card model-photo"><img src="./assets/online/ethane-3d.png" alt="Ethane ball-and-stick model"><h3>Ball-stick</h3><p>Shows geometry and bonds.</p></div>
+                <div class="model-card model-photo"><img src="./assets/ppt/hydrocarbon-model-collage.png" alt="Teacher PowerPoint molecule model collage"><h3>Model gallery</h3><p>Compare how each view changes the evidence.</p></div>
               </div>
               <div class="reveal">
                 <button class="reveal-toggle" type="button">Best model for bonding evidence</button>
@@ -392,8 +407,8 @@ const lessons = [
               </div>
             </div>
             <div class="activity-panel">
-              <div class="bond-row">
-                <div class="bond-card"><div class="bond-visual"><div class="bond-lines"><span></span></div></div><h3>Single</h3><p>Saturated evidence.</p></div>
+              <div class="bond-row bond-showcase">
+                <div class="bond-card"><div class="bond-visual molecule-photo"><img src="./assets/online/ethane-3d.png" alt="Ethane molecule"></div><h3>Single</h3><p>Saturated evidence.</p></div>
                 <div class="bond-card"><div class="bond-visual"><div class="bond-lines"><span></span><span></span></div></div><h3>Double</h3><p>Unsaturated evidence.</p></div>
                 <div class="bond-card"><div class="bond-visual"><div class="bond-lines"><span></span><span></span><span></span></div></div><h3>Triple</h3><p>Unsaturated evidence.</p></div>
               </div>
@@ -496,7 +511,8 @@ const lessons = [
               </div>
               <div class="teacher-note">Placeholder: replace with live class link or QR code when provided.</div>
             </div>
-            <div class="activity-panel">
+            <div class="activity-panel tech-panel">
+              <div class="qr-card" aria-label="Placeholder QR code"><span></span></div>
               <h3>AI-supported prompt card</h3>
               <p class="slide-subtitle">Ask an AI tool: "Give me three hydrocarbon formulas. I will classify them as saturated or unsaturated and explain the bond evidence."</p>
               <div class="reveal">

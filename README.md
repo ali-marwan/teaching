@@ -10,3 +10,11 @@ Official classroom HTML presentation app for Grade 11 Advanced Chemistry.
 - PDF-safe print styling with one slide per page and static 3D fallbacks.
 
 Open `index.html` in Chrome to present or export to PDF.
+
+## Media
+
+- Teacher-provided PowerPoint media extracted from the local lesson files.
+- Ruwais refinery image from the existing local deck assets.
+- Carbon allotropes SVG from Wikimedia Commons: <https://commons.wikimedia.org/wiki/File:Carbon_allotropes.svg>
+- Ethane 3D model from Wikimedia Commons: <https://commons.wikimedia.org/wiki/File:Ethane-A-3D-balls.png>
+- Three.js local runtime: <https://threejs.org/>
