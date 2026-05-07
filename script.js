@@ -1,15 +1,15 @@
 const classIndexItems = [
-  { id: "welcome", label: "Class Welcome + attendance", start: 0 },
+  { id: "welcome", label: "Class Welcome + Attendance", start: 0 },
   { id: "anthem", label: "National Anthem", start: 1 },
   { id: "rules", label: "Classroom Rules", start: 2 },
   { id: "pre-starter", label: "Pre-assessment + Starter", start: 3 },
-  { id: "lesson-title", label: "Lesson title", start: 5 },
-  { id: "outcomes", label: "Outcomes + vocab", start: 6 },
-  { id: "lesson-explanation", label: "Lesson explanation", start: 7 },
-  { id: "formative", label: "Formative assessment", start: 17 },
-  { id: "check-understanding", label: "Check understanding", start: 18 },
-  { id: "final-assessment", label: "Final assessment", start: 20, tone: "final" },
-  { id: "enrichment", label: "Enrichment activity", start: 21 },
+  { id: "lesson-title", label: "Lesson Title", start: 5 },
+  { id: "outcomes", label: "Outcomes + Vocab", start: 6 },
+  { id: "lesson-explanation", label: "Lesson Explanation", start: 7 },
+  { id: "formative", label: "Formative Assessment", start: 17 },
+  { id: "check-understanding", label: "Check Understanding", start: 18 },
+  { id: "final-assessment", label: "Final Assessment", start: 20, tone: "final" },
+  { id: "enrichment", label: "Enrichment Activity", start: 21 },
   { id: "homework", label: "Homework", start: 21 }
 ];
 
