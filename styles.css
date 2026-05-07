@@ -1815,6 +1815,154 @@ button {
   }
 }
 
+@media (min-width: 721px) and (max-height: 820px) {
+  :root {
+    --sidebar-width: 230px;
+    --shadow: 0 12px 34px rgba(16, 32, 40, 0.14);
+  }
+
+  .app-shell {
+    grid-template-rows: 64px minmax(0, 1fr) 48px;
+  }
+
+  .module-topbar {
+    gap: 12px;
+    padding: 7px 16px;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-lockup h1 {
+    font-size: 17px;
+  }
+
+  .lesson-tab {
+    flex-basis: 220px;
+    min-height: 44px;
+    padding: 6px 10px;
+  }
+
+  .deck-shell {
+    gap: 12px;
+    padding: 10px 18px 8px;
+  }
+
+  .sidebar-head {
+    min-height: 58px;
+  }
+
+  .sidebar-head strong {
+    font-size: 26px;
+  }
+
+  .flow-button strong {
+    font-size: 18px;
+    line-height: 1.08;
+  }
+
+  .slide-stage {
+    grid-template-rows: 54px minmax(0, 1fr);
+  }
+
+  .metadata-bar {
+    padding: 7px 16px;
+  }
+
+  .meta-main h2 {
+    font-size: 16px;
+  }
+
+  .meta-main p {
+    font-size: 11px;
+  }
+
+  .meta-chip {
+    padding: 6px 8px;
+  }
+
+  .slide-content {
+    padding: 14px 18px;
+  }
+
+  .slide-grid,
+  .slide-grid.split-large {
+    gap: 18px;
+  }
+
+  .slide-title {
+    margin-bottom: 10px;
+    font-size: clamp(30px, 3.55vw, 50px);
+    line-height: 1;
+  }
+
+  .slide-subtitle {
+    margin-bottom: 12px;
+    font-size: clamp(16px, 1.35vw, 20px);
+  }
+
+  .content-panel,
+  .activity-panel {
+    padding: 16px;
+  }
+
+  .visual-panel {
+    padding: 14px;
+  }
+
+  .choice-grid,
+  .task-grid,
+  .summary-grid {
+    gap: 8px;
+  }
+
+  .mini-card,
+  .task-card,
+  .question-card,
+  .summary-card,
+  .exit-card {
+    padding: 12px;
+  }
+
+  .three-card {
+    min-height: 300px;
+  }
+
+  .three-scene {
+    min-height: 230px;
+  }
+
+  .module-landing {
+    gap: 14px;
+    padding: 22px 28px;
+  }
+
+  .landing-copy h2 {
+    font-size: clamp(36px, 4vw, 56px);
+  }
+
+  .landing-copy p:not(.label) {
+    font-size: 16px;
+    line-height: 1.42;
+  }
+
+  .module-map {
+    gap: 10px;
+  }
+
+  .module-card {
+    padding: 12px;
+  }
+
+  .presenter-controls {
+    grid-template-columns: 128px minmax(0, 1fr) 128px;
+    gap: 14px;
+    padding: 6px 18px 8px;
+  }
+}
+
 @media (max-width: 720px) {
   html,
   body {
