@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Module 20 Hydrocarbons | Student Class Presentation</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body data-print-mode="active">
+    <div class="app-shell">
+      <header class="module-topbar" aria-label="Module navigation">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img">
+              <circle cx="24" cy="24" r="20"></circle>
+              <path d="M15 28c6-14 20-14 26-2M9 20c8 4 17 3 26-3M19 9c7 9 8 18 2 30"></path>
+            </svg>
+          </span>
+          <div>
+            <p>Grade 11 Advanced Chemistry</p>
+            <h1>Module 20: Hydrocarbons</h1>
+          </div>
+        </div>
+
+        <nav class="lesson-tabs" id="lessonTabs" aria-label="Lesson tabs"></nav>
+
+        <div class="top-actions">
+          <button class="icon-button" id="homeButton" type="button" title="Module landing" aria-label="Module landing">
+            <span aria-hidden="true">M20</span>
+          </button>
+          <button class="text-button" id="printModeButton" type="button">Print: Active lesson</button>
+          <button class="primary-button" id="printButton" type="button">Export PDF</button>
+        </div>
+      </header>
+
+      <main class="deck-shell">
+        <aside class="class-sidebar" aria-label="Lesson progress">
+          <div class="sidebar-head">
+            <span class="sidebar-kicker">Class Flow</span>
+            <strong id="sidebarLesson">Lesson 1</strong>
+            <span id="slideCounter">Slide 1 / 22</span>
+          </div>
+          <ol class="flow-list" id="flowList"></ol>
+          <div class="talk-ratio" aria-label="Teaching approach">
+            <span>Teacher guide</span>
+            <strong>30%</strong>
+            <span>Student action</span>
+            <strong>70%</strong>
+          </div>
+        </aside>
+
+        <section class="lesson-workspace">
+          <section class="module-landing" id="moduleLanding" aria-label="Module overview">
+            <div class="landing-copy">
+              <p class="label">Official classroom sequence</p>
+              <h2>Hydrocarbons from carbon bonding to aromatic rings</h2>
+              <p>
+                A tabbed HTML presentation app built from the Excel scope and Teacher Edition storyline.
+                Lesson 1 is fully ready for a 45-minute class; Lessons 2-5 are isolated and prepared for expansion.
+              </p>
+              <div class="landing-actions">
+                <button class="primary-button" id="startLessonButton" type="button">Start Lesson 1</button>
+                <span>Use arrows, Space, Home, and End during presenting.</span>
+              </div>
+            </div>
+            <div class="module-map" id="moduleMap" aria-label="Module lesson map"></div>
+          </section>
+
+          <div class="lesson-decks" id="lessonDecks" aria-live="polite"></div>
+        </section>
+      </main>
+
+      <footer class="presenter-controls" aria-label="Slide controls">
+        <button class="nav-button" id="prevButton" type="button">Previous</button>
+        <div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div>
+        <button class="nav-button" id="nextButton" type="button">Next</button>
+      </footer>
+    </div>
+
+    <script src="./vendor/three.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
