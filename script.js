@@ -739,6 +739,7 @@ const state = {
   view: "landing",
   printMode: "active",
   slideIndexByLesson: Object.fromEntries(lessons.map((lesson) => [lesson.id, 0])),
+  activeClassIndexId: null,
   reveals: new Set()
 };
 
@@ -805,8 +806,10 @@ function activeClassIndexId(slideIndex) {
 function classIndexMarkup(activeId) {
   return `
     ${classIndexItems.map((item) => `
-      <li class="flow-item ${item.id === activeId ? "is-active" : ""} ${item.tone === "final" ? "is-final" : ""}" data-index-item="${item.id}">
-        <div class="flow-button"><strong>${item.label}</strong></div>
+      <li class="flow-item ${item.id === activeId ? "is-active" : ""}" data-index-item="${item.id}">
+        <button class="flow-button" type="button" data-slide="${item.start}" aria-label="Go to ${item.label}">
+          <strong>${item.label}</strong>
+        </button>
       </li>
     `).join("")}
   `;
@@ -876,7 +879,15 @@ function revealKey(lessonId, slideIndex, revealIndex) {
 }
 
 function buildFlow() {
-  elements.flowList.innerHTML = classIndexMarkup(activeClassIndexId(activeSlideIndex()));
+  const slideIndex = activeSlideIndex();
+  const activeOverride = classIndexItems.find((item) => item.id === state.activeClassIndexId);
+  const activeId = activeOverride?.start === slideIndex ? activeOverride.id : activeClassIndexId(slideIndex);
+  elements.flowList.innerHTML = classIndexMarkup(activeId);
+  elements.flowList.querySelectorAll(".flow-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      enterDeck(state.activeLessonId, Number(button.dataset.slide), button.closest(".flow-item").dataset.indexItem);
+    });
+  });
 }
 
 function updateUI() {
@@ -904,9 +915,13 @@ function updateUI() {
   elements.prevButton.disabled = state.view === "landing" || slideIndex === 0;
   elements.nextButton.disabled = state.view !== "landing" && slideIndex === total - 1;
 
+  const activeOverride = classIndexItems.find((item) => item.id === state.activeClassIndexId);
+  const activeIndexId = activeOverride?.start === slideIndex ? activeOverride.id : activeClassIndexId(slideIndex);
+  state.activeClassIndexId = activeOverride?.start === slideIndex ? activeOverride.id : null;
+
   buildFlow();
   elements.flowList.querySelectorAll(".flow-item").forEach((item) => {
-    item.classList.toggle("is-active", item.dataset.indexItem === activeClassIndexId(slideIndex));
+    item.classList.toggle("is-active", item.dataset.indexItem === activeIndexId);
   });
 
   document.querySelectorAll(".reveal").forEach((reveal) => {
@@ -917,11 +932,12 @@ function updateUI() {
   elements.printModeButton.textContent = state.printMode === "active" ? "Print: Active lesson" : "Print: All lessons";
 }
 
-function enterDeck(lessonId = state.activeLessonId, slideIndex) {
+function enterDeck(lessonId = state.activeLessonId, slideIndex, classIndexId = null) {
   state.activeLessonId = lessonId;
   if (slideIndex !== undefined) {
     state.slideIndexByLesson[lessonId] = slideIndex;
   }
+  state.activeClassIndexId = classIndexId;
   state.view = "deck";
   updateUI();
 }
@@ -938,6 +954,7 @@ function nextSlide() {
   const lesson = activeLesson();
   const current = activeSlideIndex();
   if (current < lesson.slides.length - 1) {
+    state.activeClassIndexId = null;
     state.slideIndexByLesson[state.activeLessonId] = current + 1;
     updateUI();
   }
@@ -947,6 +964,7 @@ function previousSlide() {
   if (state.view === "landing") return;
   const current = activeSlideIndex();
   if (current > 0) {
+    state.activeClassIndexId = null;
     state.slideIndexByLesson[state.activeLessonId] = current - 1;
     updateUI();
   }
@@ -954,6 +972,7 @@ function previousSlide() {
 
 function firstSlide() {
   if (state.view === "landing") return;
+  state.activeClassIndexId = null;
   state.slideIndexByLesson[state.activeLessonId] = 0;
   updateUI();
 }
@@ -961,6 +980,7 @@ function firstSlide() {
 function lastSlide() {
   if (state.view === "landing") return;
   const lesson = activeLesson();
+  state.activeClassIndexId = null;
   state.slideIndexByLesson[state.activeLessonId] = lesson.slides.length - 1;
   updateUI();
 }

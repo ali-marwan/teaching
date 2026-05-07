@@ -292,10 +292,6 @@ button {
   background: #854261;
 }
 
-.flow-item.is-final {
-  background: #ff7f1a;
-}
-
 .flow-item.is-active:not(.is-final)::before {
   content: "";
   position: absolute;
@@ -313,10 +309,11 @@ button {
   justify-content: center;
   border: 0;
   color: #fff;
-  background: transparent;
+  background: #854261;
   padding: 4px 12px;
   text-align: center;
-  cursor: default;
+  cursor: pointer;
+  font: inherit;
 }
 
 .flow-button span:first-child {
@@ -344,7 +341,7 @@ button {
 
 .flow-item.is-active .flow-button {
   color: #fff;
-  background: rgba(255, 255, 255, 0.06);
+  background: #854261;
 }
 
 .flow-item.is-active .flow-button span:first-child {
@@ -354,6 +351,16 @@ button {
 
 .flow-item.is-complete .flow-button span:first-child {
   background: transparent;
+}
+
+.flow-button:hover,
+.flow-button:focus-visible {
+  background: #854261;
+  outline: none;
+}
+
+.flow-button:focus-visible {
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.52);
 }
 
 .talk-ratio {
